@@ -10,32 +10,28 @@ class Warrior:
     def __init__(self, health, power):
         self.health = health
         self.power = power
-        
+                
 class Hero(Warrior):
-    def __init__(self, health, power, sheild):
-        super().__init__(health, power)
-        self.sheild = sheild
+    def __init__(self, health, power):
+        super().__init__(health, power,)
         
 class Goblin(Warrior):
-    def __init__(self, health, power, drool):
+    def __init__(self, health, power):
         super().__init__(health, power)
-        self.drool = drool
         
-hiro = Hero(10, 5, 1)
-spike = Goblin(6,2,1)
+hiro = Hero(10, 5)
+spike = Goblin(6,2)
     
 def main():
         
     while spike.health > 0 and hiro.health > 0:
-        print("You have %d health and %d power. You have a sheild with + %d point of protection." % (hiro.health, hiro.power, hiro.sheild))
-        print("The goblin has %d health and %d power.  He can spit acid which adds + %d points to his attack." % (spike.health, spike.power, spike.drool))
+        print("You have %d health and %d power." % (hiro.health, hiro.power))
+        print("The goblin has %d health and %d power." % (spike.health, spike.power))
         print()
         print("What do you want to do?")
         print("1. fight goblin")
-        print("2. block with sheild")
-        print("3. do nothing")
-        print("4. flee")
-        
+        print("2. do nothing")
+        print("3. flee")
         print("> ",)
         user_input = input()
         if user_input == "1":
@@ -45,13 +41,8 @@ def main():
             if spike.health <= 0:
                 print("The goblin is dead.")
         elif user_input == "2":
-            #Hero blocks goblin
-            print("The goblin attacks!")
-            hiro.health -= (spike.power-hiro.sheild)
-            print("You use the shild to block, but take a little damage.")
-        elif user_input == "3":
             pass
-        elif user_input == "4":
+        elif user_input == "3":
             print("Goodbye.")
             break
         else:
